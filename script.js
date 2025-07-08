@@ -414,8 +414,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 client_message: formData.client_message || 'No special requests provided.',
                 reply_to: formData.client_email
             };
-            // Send business notification email
-            emailjs.send('service_jh4zvfb', 'template_8n89tnp', businessTemplateParams)
+            
+            // Send business notification email (FIXED: Using correct template ID)
+            emailjs.send('service_jh4zvfb', 'template_a4b2pcs', businessTemplateParams)
                 .then(function(response) {
                     console.log('Business notification sent successfully:', response);
                     
@@ -448,7 +449,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Send confirmation email to client
+    // Send confirmation email to client (FIXED: Using correct template ID)
     function sendClientConfirmation(formData) {
         const clientTemplateParams = {
             to_name: formData.client_name,
@@ -463,7 +464,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         // Send client confirmation email
-        return emailjs.send('service_jh4zvfb', 'template_a4b2pcs', clientTemplateParams);
+        return emailjs.send('service_jh4zvfb', 'template_8n89tnp', clientTemplateParams);
     }
     
     // Real-time form validation
